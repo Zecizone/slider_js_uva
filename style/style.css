@@ -24,8 +24,151 @@ html {
 }
 
 body {
-	font-family: 'Montserrat', sans-serif;
+	font-family: serif;
 	font-size: 14px;
 	font-weight: 400;
 	height: 100%;
+	background: #131313;
+	color: #FFF;
+}
+
+.container {
+	max-width: 1185px;
+	margin: 0 auto;
+	padding: 0 10px;
+	height: 100%;
+}
+
+.msg-container {
+	width: 1171px;
+	height: 484px;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	overflow: hidden;
+	background-color: brown;
+}
+.slider {
+	
+}
+.msg-column {
+	display: flex;
+	z-index: 1;
+	width: 1171px;
+	height: 484px;
+}
+.slide-text {
+	margin-right: 50px;
+}
+
+.text1 {
+	color: #FFF;
+	font-family: Nunito Sans;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 190.96%;
+	width: 442px;
+	height: 86px;
+	margin-bottom: 42px;
+}
+
+.dec-line {
+	width: 253px;
+	height: 66px;
+	color: #E3B873;
+	font-family: Yeseva One;
+	font-size: 27px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 138.6%;
+	letter-spacing: -1.89px;
+	text-transform: uppercase;
+	margin-bottom: 34px;
+}
+
+.underline::after {
+	content: '';
+	display: inline-block;
+	width: 92px;
+	height: 1px;
+	background: #E3B873;
+	margin: 10px;
+	margin-left: 25px;
+  }
+
+.slider_class {
+	display: inline-flex;
+}
+
+  .info-card {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	width: 442px;
+	height: 148px;
+	grid-column-gap: 67px;
+  	grid-row-gap: 42px; 
+  }
+  .info-card h2 {
+	color: #E3B873;
+	font-family: Yeseva One;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 138.6%;
+	text-transform: uppercase;
+}
+
+.info-card p {
+	color: #FFF;
+	font-family: Nunito Sans;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 163.68%;
+}
+
+  .card_city {
+	grid-row: 1 / 2;
+	grid-column: 1 / 2;
+  }
+  
+  .card_apartment {
+	grid-row: 1 / 2;
+	grid-column: 2 / 3;
+  }
+  
+  .card_time {
+	grid-row: 2 / 3;
+	grid-column: 1 / 2;
+  }
+  
+  .card_cost {
+	grid-row: 2 / 3;
+	grid-column: 2 / 3;
+  }
+
+  .dots-item {
+	display: inline-block;
+	cursor: pointer;
+	width: 9px;
+	height: 9px;
+	margin: 7px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.30);
+}
+
+.active {
+	background: #FFFFFF;
+}
+
+.controller {
+	display: flex;
+	align-items: center;
+	position: absolute;
+	top: 81%;
+    left: 17%;
+    transform: translate(-50%, -50%);
 }
