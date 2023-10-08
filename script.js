@@ -1,45 +1,59 @@
-// let dots = document.getElementsByClassName('dots-item'),
-// dotsArea = document.getElementsByClassName('dots-block')[0],
-// slides = document.getElementsByClassName('msg-column'),
-// prevBtn = document.getElementsByClassName('left-but'),
-// nextBtn = document.getElementsByClassName('right-but'),
-// slideIndex = 1;
+let slider = document.querySelector('.slider');
+let slides = slider.querySelectorAll('.slide1, .slide2, .slide3');
+let links = document.querySelectorAll('.lin');
+let nextBtn = document.querySelector('.next-btn');
+let prevBtn = document.querySelector('.prev-btn');
+let dots = document.querySelectorAll('.dot');
+let currentSlide = 0;
 
-// showSlides(slideIndex) ;
+function showSlide(n) {
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].classList.remove('active');
+  }
+    slides[n].classList.add('active');
 
-// function showSlides (n) {
-//     if (n < 1) {
-//         slideIndex - slides.length;
-//     } else if (n > slides.length) {
-//         slideIndex = 1;
-//     }
-//     for (let i = 0; i < slides.length; i++) {
-//     slides[i].style.display = 'none';
-//     }
-//     for (let i = 0; i < dots.length; i++) {
-//         dots[i].classList.remove('active');
-//     }
-//     slides[slideIndex - 1].style.display = 'block';
-//     dots[slideIndex - 1].classList.add('active');
-//  }
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].classList.remove('active-dot');
+  }
+  dots[n].classList.add('active-dot');
 
-//  function plusSlides (n) {
-//     showSlides(slideIndex += n);
-//  }
-//  function currentSlide (n) {
-//     showSlides(slideIndex = n);
-//  }
-//  prevBtn.onclick = function () {
-//     plusSlides(-1);
-//  }
-//  nextBtn.onclick = function () {
-//     plusSlides(1);
-//  }
-//  dotsArea.onclick = function (e) {
-//     for (let i = 0; i < dots.length + 1; i++) {
-//         if (e.target.classList.contains('dots-item') && e.target == dots[i - 1]) {
-//             currentSlide(i);
-//         }
-//     }
-//  }
+  for (let i = 0; i < links.length; i++) {
+    links[i].classList.remove('active-links');
+  }
+    links[n].classList.add('active-links');
+};
 
+prevBtn.addEventListener('click', function() {
+  if (currentSlide < slides.length - 1) {
+    currentSlide++;
+  } else {
+    currentSlide = 0;
+  }
+  showSlide(currentSlide);
+});
+
+nextBtn.addEventListener('click', function() {
+  if (currentSlide > 0) {
+    currentSlide--;
+  } else {
+    currentSlide = slides.length - 1;
+  }
+  showSlide(currentSlide);
+});
+
+dots.forEach(function(dot, index) {
+  dot.addEventListener('click', function() {
+    currentSlide = index;
+    showSlide(currentSlide);
+  });
+});
+
+links.forEach(function(link, index) {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    currentSlide = index;
+    showSlide(currentSlide);
+  });
+});
+
+showSlide(currentSlide);
